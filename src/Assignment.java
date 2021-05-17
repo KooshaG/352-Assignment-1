@@ -1,20 +1,34 @@
 public class Assignment {
     public static void main(String[] args) {
 
-        String[] pName = {"Linda","Sam","Roger","Alfred","Roberto","Melissa","Brian","Thomas","Leslie","Maria"};
-        DOB[] pDOB = new DOB[10];
-        for (int i = 0; i <10; i++) {
+        int test = 6580;
+
+        String[] pName = nameGenerator(test);
+        DOB[] pDOB = new DOB[test];
+        for (int i = 0; i <test; i++) {
             pDOB[i] = DOB.randomDOB();
         }
 
-        int cool = rearrangeParticipants(pName, pDOB, pName.length);
-        displayResult(pName, pDOB);
-        System.out.println(cool);
+        long start = System.nanoTime();
+        int seniors = rearrangeParticipants(pName, pDOB, pName.length);
+        long end = System.nanoTime();
+        System.out.println("rearrangeParticipants took "+(end-start)+" ms to complete with "+test+" people");
+        int nonSeniors = test-seniors;
+        System.out.println("There are "+seniors+" seniors");
+
+        System.out.println("\nTesting displaySeniorsIncreasingOrder...");
+        displaySeniorsIncreasingOrder(pName, pDOB, seniors);
+        System.out.println("\nTesting displayNonSeniorsIncreasingOrder...");
+        displayNonSeniorsIncreasingOrder(pName, pDOB, nonSeniors, test);
+        System.out.println("\nTesting displayIncreasingOrder...");
+        displayIncreasingOrder(pName, pDOB, seniors, test);
         
+
+        System.out.println("rearrangeParticipants took "+(end-start)/(double)1000000+" ms to complete with "+test+" people");
+
     }
     public static int rearrangeParticipants(String[] pName, DOB[] pDOB, int n){
         if(n==0) return 0; //base case
-        displayResult(pName, pDOB);
         for(int i=0; i<n; i++) {
             if(pDOB[n-1].isYounger(pDOB[i]) && !pDOB[i].isSenior()) { //if we find a non senior in the loop and the person at n is younger, 
                 DOB temp = new DOB(pDOB[i]);                          //swap because we want oldest non senior at the bottom
@@ -46,19 +60,14 @@ public class Assignment {
     }
 
     public static void displayNonSeniorsIncreasingOrder(String[] pName, DOB[] pDOB, int nonSeniors, int n){
-        if(n==nonSeniors) return;
-        displayNonSeniorsIncreasingOrder(pName, pDOB, nonSeniors, n-1);
+        if(nonSeniors==0) return;
+        displayNonSeniorsIncreasingOrder(pName, pDOB, nonSeniors-1, n-1);
         System.out.println(pName[n-1]+"\t"+pDOB[n-1]);
     }
 
     public static void displayIncreasingOrder(String[] pName, DOB[] pDOB, int seniors, int n){
-
-    }
-    public static void displayResult(String[] pName, DOB[] pDOB) {
-        for(int i=0; i<pName.length; i++) {
-            System.out.println(i+"\t"+pName[i]+"\t"+pDOB[i]);
-        }
-        System.out.println();
+        displayNonSeniorsIncreasingOrder(pName, pDOB, n-seniors, n);
+        displaySeniorsIncreasingOrder(pName, pDOB, seniors);
     }
     public static String[] nameGenerator(int n){
         String[] names = new String[n];
