@@ -17,7 +17,7 @@ public class DOB {
         this(copy.day, copy.month, copy.year);
     }
     public static DOB randomDOB(){
-        return new DOB(ThreadLocalRandom.current().nextInt(1,31),ThreadLocalRandom.current().nextInt(1,13),ThreadLocalRandom.current().nextInt(2020,1920));
+        return new DOB(ThreadLocalRandom.current().nextInt(1,31),ThreadLocalRandom.current().nextInt(1,13),ThreadLocalRandom.current().nextInt(1920,2020));
     }
 
     public boolean isSenior(){
