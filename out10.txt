@@ -1,0 +1,33 @@
+
+testing rearrangeParticipants...
+rearrangeParticipants took 0.019299 ms to complete with 10 people
+There are 4 seniors
+
+testing displaySeniorsIncreasingOrder...
+3	5-7-1951
+7	20-12-1938
+5	23-8-1931
+4	19-3-1927
+displaySeniorsIncreasingOrder took 0.0909 ms to complete with 10 people
+
+testing displayNonSeniorsIncreasingOrder...
+8	11-8-2018
+6	1-3-2014
+1	12-8-2011
+2	13-2-1998
+0	6-5-1986
+9	11-11-1983
+displayNonSeniorsIncreasingOrder took 0.107599 ms to complete with 10 people
+
+testing displayIncreasingOrder...
+8	11-8-2018
+6	1-3-2014
+1	12-8-2011
+2	13-2-1998
+0	6-5-1986
+9	11-11-1983
+3	5-7-1951
+7	20-12-1938
+5	23-8-1931
+4	19-3-1927
+displayIncreasingOrder took 0.3248 ms to complete with 10 people

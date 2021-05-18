@@ -1,31 +1,64 @@
+// ----------------------------------------------------------------
+// Assignment 1
+// Written by: Adamo Orsini (40174716) and Koosha Gholipour (40176826)
+// ----------------------------------------------------------------
+
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.PrintStream;
+
 public class Assignment {
+    
     public static void main(String[] args) {
 
-        int test = 6580;
+        PrintStream pw = null;
 
-        String[] pName = nameGenerator(test);
-        DOB[] pDOB = new DOB[test];
-        for (int i = 0; i <test; i++) {
-            pDOB[i] = DOB.randomDOB();
+        int[] test = {10,100,200,1000,2000,10000,100000,1000000};
+        for(int size:test){
+
+            try{
+                pw = new PrintStream(new FileOutputStream("out"+size+".txt"));
+            }
+            catch(IOException e){
+                e.printStackTrace();
+            }
+            System.setOut(pw);
+    
+            String[] pName = nameGenerator(size); //make the names of all the participants as numbers
+            DOB[] pDOB = new DOB[size];
+            for (int i = 0; i <size; i++) {
+                pDOB[i] = DOB.randomDOB(); //makes a random DOB per person
+            }
+    
+            System.out.println("\ntesting rearrangeParticipants..."); //tests
+            long start = System.nanoTime();
+            int seniors = rearrangeParticipants(pName, pDOB, pName.length);
+            long end = System.nanoTime();
+            System.out.println("rearrangeParticipants took "+(end-start)/1000000.0+" ms to complete with "+size+" people");
+    
+            int nonSeniors = size-seniors;
+            System.out.println("There are "+seniors+" seniors");
+    
+            System.out.println("\ntesting displaySeniorsIncreasingOrder...");
+            start = System.nanoTime();
+            displaySeniorsIncreasingOrder(pName, pDOB, seniors);
+            end = System.nanoTime();
+            System.out.println("displaySeniorsIncreasingOrder took "+(end-start)/1000000.0+" ms to complete with "+size+" people");
+    
+    
+            System.out.println("\ntesting displayNonSeniorsIncreasingOrder...");
+            start = System.nanoTime();
+            displayNonSeniorsIncreasingOrder(pName, pDOB, nonSeniors, size);
+            end = System.nanoTime();
+            System.out.println("displayNonSeniorsIncreasingOrder took "+(end-start)/1000000.0+" ms to complete with "+size+" people");
+    
+            
+            System.out.println("\ntesting displayIncreasingOrder...");
+            start = System.nanoTime();
+            displayIncreasingOrder(pName, pDOB, seniors, size);
+            end = System.nanoTime();
+            System.out.println("displayIncreasingOrder took "+(end-start)/1000000.0+" ms to complete with "+size+" people");
         }
-
-        long start = System.nanoTime();
-        int seniors = rearrangeParticipants(pName, pDOB, pName.length);
-        long end = System.nanoTime();
-        System.out.println("rearrangeParticipants took "+(end-start)+" ms to complete with "+test+" people");
-        int nonSeniors = test-seniors;
-        System.out.println("There are "+seniors+" seniors");
-
-        System.out.println("\nTesting displaySeniorsIncreasingOrder...");
-        displaySeniorsIncreasingOrder(pName, pDOB, seniors);
-        System.out.println("\nTesting displayNonSeniorsIncreasingOrder...");
-        displayNonSeniorsIncreasingOrder(pName, pDOB, nonSeniors, test);
-        System.out.println("\nTesting displayIncreasingOrder...");
-        displayIncreasingOrder(pName, pDOB, seniors, test);
-        
-
-        System.out.println("rearrangeParticipants took "+(end-start)/(double)1000000+" ms to complete with "+test+" people");
-
     }
     public static int rearrangeParticipants(String[] pName, DOB[] pDOB, int n){
         if(n==0) return 0; //base case
@@ -55,14 +88,14 @@ public class Assignment {
 
     public static void displaySeniorsIncreasingOrder(String[] pName, DOB[] pDOB, int seniors){
         if(seniors==0) return;
-        System.out.println(pName[seniors-1]+"\t"+pDOB[seniors-1]);
+        System.out.println(pName[seniors-1]+"\t"+pDOB[seniors-1]); //since seniors is in decreasing order, we print from bottom to top
         displaySeniorsIncreasingOrder(pName, pDOB,seniors-1);
     }
 
     public static void displayNonSeniorsIncreasingOrder(String[] pName, DOB[] pDOB, int nonSeniors, int n){
         if(nonSeniors==0) return;
-        displayNonSeniorsIncreasingOrder(pName, pDOB, nonSeniors-1, n-1);
-        System.out.println(pName[n-1]+"\t"+pDOB[n-1]);
+        displayNonSeniorsIncreasingOrder(pName, pDOB, nonSeniors-1, n-1); //non-seniors are in increasing order and we count up from the 
+        System.out.println(pName[n-1]+"\t"+pDOB[n-1]);                    //bottom so we call the function before writing to output in order because the recursion counts from n to non-seniors
     }
 
     public static void displayIncreasingOrder(String[] pName, DOB[] pDOB, int seniors, int n){
@@ -76,4 +109,5 @@ public class Assignment {
         }
         return names;
     }
+
 }

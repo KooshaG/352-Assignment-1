@@ -1,3 +1,7 @@
+// ----------------------------------------------------------------
+// Assignment 1
+// Written by: Adamo Orsini (40174716) and Koosha Gholipour (40176826)
+// ----------------------------------------------------------------
 import java.util.concurrent.ThreadLocalRandom;
 
 public class DOB {
