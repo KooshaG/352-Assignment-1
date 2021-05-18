@@ -1,0 +1,3 @@
+The output of the test with 1000 participants ran in 10.263999 ms while the test with 2000 participants ran in 47.407 ms.
+This looks rather close to a O(n^2) relationship because the result for the larger test case is close to quadruple compared to the smaller test case.
+When n doubled, the time taken was close to quadruple.
