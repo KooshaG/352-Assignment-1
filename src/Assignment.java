@@ -32,7 +32,7 @@ public class Assignment {
     
             System.out.println("\ntesting rearrangeParticipants..."); //tests
             long start = System.nanoTime();
-            int seniors = rearrangeParticipants(pName, pDOB, pName.length);
+            int seniors = rearrangeParticipants(pName, pDOB, size, 0);
             long end = System.nanoTime();
             System.out.println("rearrangeParticipants took "+(end-start)/1000000.0+" ms to complete with "+size+" people");
     
@@ -60,9 +60,9 @@ public class Assignment {
             System.out.println("displayIncreasingOrder took "+(end-start)/1000000.0+" ms to complete with "+size+" people");
         }
     }
-    public static int rearrangeParticipants(String[] pName, DOB[] pDOB, int n){
+    public static int rearrangeParticipants(String[] pName, DOB[] pDOB, int n, int i){
         if(n==0) return 0; //base case
-        for(int i=0; i<n; i++) {
+        if(i<n) {
             if(pDOB[n-1].isYounger(pDOB[i]) && !pDOB[i].isSenior()) { //if we find a non senior in the loop and the person at n is younger, 
                 DOB temp = new DOB(pDOB[i]);                          //swap because we want oldest non senior at the bottom
                 String tmp = pName[i];
@@ -79,11 +79,12 @@ public class Assignment {
                 pDOB[n-1]=temp;
                 pName[n-1]=tmp;
             }
+            return(rearrangeParticipants(pName, pDOB, n,i+1));
         }
         if(pDOB[n-1].isSenior()) {
-            return(1+rearrangeParticipants(pName, pDOB, n-1));
+            return(1+rearrangeParticipants(pName, pDOB, n-1,0));
         }
-        return (rearrangeParticipants(pName, pDOB, n-1));
+        return (rearrangeParticipants(pName, pDOB, n-1,0));
     }
 
     public static void displaySeniorsIncreasingOrder(String[] pName, DOB[] pDOB, int seniors){
