@@ -1,0 +1,73 @@
+
+testing rearrangeParticipants...
+rearrangeParticipants took 0.0866 ms to complete with 30 people
+There are 18 seniors
+
+testing displaySeniorsIncreasingOrder...
+28	16-1-1954
+9	1-10-1953
+6	16-5-1948
+8	16-7-1947
+26	12-9-1946
+20	22-10-1945
+23	23-2-1942
+29	17-2-1941
+0	6-5-1939
+7	27-10-1938
+24	24-9-1933
+27	4-8-1932
+3	3-2-1932
+5	25-1-1931
+13	3-12-1929
+18	28-7-1929
+17	8-4-1927
+22	4-6-1921
+displaySeniorsIncreasingOrder took 0.427299 ms to complete with 30 people
+
+testing displayNonSeniorsIncreasingOrder...
+21	12-4-2015
+25	26-5-2010
+1	11-12-2007
+10	22-4-2000
+4	3-5-1998
+11	9-4-1997
+19	22-7-1994
+14	12-12-1965
+2	13-6-1964
+16	19-9-1958
+12	29-7-1957
+15	4-3-1957
+displayNonSeniorsIncreasingOrder took 0.2963 ms to complete with 30 people
+
+testing displayIncreasingOrder...
+21	12-4-2015
+25	26-5-2010
+1	11-12-2007
+10	22-4-2000
+4	3-5-1998
+11	9-4-1997
+19	22-7-1994
+14	12-12-1965
+2	13-6-1964
+16	19-9-1958
+12	29-7-1957
+15	4-3-1957
+28	16-1-1954
+9	1-10-1953
+6	16-5-1948
+8	16-7-1947
+26	12-9-1946
+20	22-10-1945
+23	23-2-1942
+29	17-2-1941
+0	6-5-1939
+7	27-10-1938
+24	24-9-1933
+27	4-8-1932
+3	3-2-1932
+5	25-1-1931
+13	3-12-1929
+18	28-7-1929
+17	8-4-1927
+22	4-6-1921
+displayIncreasingOrder took 0.6828 ms to complete with 30 people

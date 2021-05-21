@@ -13,7 +13,7 @@ public class Assignment {
 
         PrintStream pw = null;
 
-        int[] test = {10,100,200,1000,2000,10000,100000,1000000};
+        int[] test = {10,20,30,40,50,60,70,80,90,100,200,1000,2000,10000,100000,1000000};
         for(int size:test){
 
             try{
