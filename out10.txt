@@ -1,33 +1,33 @@
 
 testing rearrangeParticipants...
-rearrangeParticipants took 0.021099 ms to complete with 10 people
-There are 1 seniors
+rearrangeParticipants took 0.0194 ms to complete with 10 people
+There are 5 seniors
 
 testing displaySeniorsIncreasingOrder...
-6	6-10-1928
-displaySeniorsIncreasingOrder took 0.041001 ms to complete with 10 people
+1	22-7-1953
+8	30-9-1944
+0	22-6-1938
+9	13-3-1926
+3	23-2-1920
+displaySeniorsIncreasingOrder took 0.1611 ms to complete with 10 people
 
 testing displayNonSeniorsIncreasingOrder...
-8	15-12-2007
-2	3-8-1997
-7	28-12-1991
-4	13-6-1980
-3	9-5-1974
-9	21-1-1974
-0	20-3-1965
-1	9-6-1964
-5	27-1-1958
-displayNonSeniorsIncreasingOrder took 0.224599 ms to complete with 10 people
+4	23-4-1997
+6	3-7-1988
+5	27-2-1983
+7	4-6-1962
+2	23-11-1958
+displayNonSeniorsIncreasingOrder took 0.1843 ms to complete with 10 people
 
 testing displayIncreasingOrder...
-8	15-12-2007
-2	3-8-1997
-7	28-12-1991
-4	13-6-1980
-3	9-5-1974
-9	21-1-1974
-0	20-3-1965
-1	9-6-1964
-5	27-1-1958
-6	6-10-1928
-displayIncreasingOrder took 0.346799 ms to complete with 10 people
+4	23-4-1997
+6	3-7-1988
+5	27-2-1983
+7	4-6-1962
+2	23-11-1958
+1	22-7-1953
+8	30-9-1944
+0	22-6-1938
+9	13-3-1926
+3	23-2-1920
+displayIncreasingOrder took 0.4138 ms to complete with 10 people
